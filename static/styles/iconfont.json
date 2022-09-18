@@ -1,0 +1,100 @@
+{
+  "id": "2955134",
+  "name": "live-video-recorder",
+  "font_family": "iconfont",
+  "css_prefix_text": "el-icon-zb-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5387616",
+      "name": "置顶",
+      "font_class": "zhiding",
+      "unicode": "eb16",
+      "unicode_decimal": 60182
+    },
+    {
+      "icon_id": "16682825",
+      "name": "取消置顶",
+      "font_class": "quxiaozhiding",
+      "unicode": "e6d8",
+      "unicode_decimal": 59096
+    },
+    {
+      "icon_id": "18194347",
+      "name": "start",
+      "font_class": "start",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "712657",
+      "name": "history",
+      "font_class": "history",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "11835334",
+      "name": "help",
+      "font_class": "help",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "7685225",
+      "name": "record_create",
+      "font_class": "record_create",
+      "unicode": "e723",
+      "unicode_decimal": 59171
+    },
+    {
+      "icon_id": "8370800",
+      "name": "record",
+      "font_class": "record",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "12002813",
+      "name": "video recorder",
+      "font_class": "videorecorder",
+      "unicode": "ea44",
+      "unicode_decimal": 59972
+    },
+    {
+      "icon_id": "14342002",
+      "name": "recorder",
+      "font_class": "recorder",
+      "unicode": "e7c2",
+      "unicode_decimal": 59330
+    },
+    {
+      "icon_id": "8094805",
+      "name": "clear",
+      "font_class": "clear",
+      "unicode": "e900",
+      "unicode_decimal": 59648
+    },
+    {
+      "icon_id": "5688929",
+      "name": "启用",
+      "font_class": "qiyong",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "5689873",
+      "name": "禁用",
+      "font_class": "jinyong",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "18991752",
+      "name": "stop",
+      "font_class": "stop",
+      "unicode": "e885",
+      "unicode_decimal": 59525
+    }
+  ]
+}
