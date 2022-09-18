@@ -135,21 +135,20 @@ class DouyinLivePlatform extends LivePlatform {
         const title = roomInfo.title
         // 支持语音直播：已知：live_room_mode - [0]: 视频直播；[3]: 语音直播, 不支持多人聊天直播模式
         if (roomInfo.live_room_mode === 3) {
-          // 语音直播, 使用手机端web页面获取，使用app端房间id
+          // 语音直播, 使用手机端web页面获取，使用app端房间id（web端接口）
           const exchangeDataForAudioLive = {
             config: {
-              url: `https://webcast.amemv.com/webcast/reflow/${roomInfo.appRoomId}`,
+              url: `https://webcast.amemv.com/webcast/room/reflow/info/?type_id=0&live_id=1&room_id=${roomInfo.appRoomId}&sec_user_id=&app_id=1128`,
               method: 'get',
               headers: {
-                'User-Agent': this.phoneUserAgent
+                'User-Agent': this.phoneUserAgent,
+                'Referer': `https://webcast.amemv.com/webcast/reflow/${roomInfo.appRoomId}`
               }
             }
           }
           // 手机端web页获取,调用转发服务获取手机端页面数据
           const res = await HttpUtil.postExchange(exchangeDataForAudioLive)
-          const re = new RegExp('window.__INIT_PROPS__ = ([^<]*)</script>')
-          const find = re.exec(res.data)
-          roomInfo = JSON.parse(find[1])['/webcast/reflow/:id']['room']
+          roomInfo = res.data.data.room
         }
         const flvUrl = roomInfo.stream_url.flv_pull_url
         const qualityKeys = Object.keys(flvUrl)
