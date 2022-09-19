@@ -83,3 +83,5 @@ npm run dev
 # build
 npm run build:full
 ```
+
+> **注意：本软件仅供学习和交流，禁止用于商业用途。**
