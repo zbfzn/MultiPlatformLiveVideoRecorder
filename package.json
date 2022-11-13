@@ -1,6 +1,6 @@
 {
   "name": "MultiPlatformLiveVideoRecorder",
-  "version": "1.1.0-alpha",
+  "version": "1.1.0",
   "author": "ZuoBro <zuobro@163.com>",
   "description": "多平台聚合直播录制",
   "license": "MIT",
