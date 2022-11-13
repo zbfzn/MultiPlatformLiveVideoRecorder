@@ -8,6 +8,8 @@ const manager = {
       recordManager,
       downloadManager
     }
+  },
+  init: function () {
     recordManager.init()
     downloadManager.init()
   }

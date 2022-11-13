@@ -7,6 +7,8 @@
 <script>
   import {remote} from 'electron'
   import ipcRendererUtil from '../helper/ipcRendererUtil'
+  import { checkAndRebuild } from './db'
+  import manager from './manager'
 
   export default {
     name: 'live-video-recorder',
@@ -14,8 +16,29 @@
       return {
         // 标记准备退出程序，防止有任务时多次点击窗口关闭按钮触发多次弹窗
         waitToExit: false,
-        waitTasksStop: false
+        waitTasksStop: false,
+        isRebuildingDatabase: true
       }
+    },
+    beforeMount () {
+      checkAndRebuild(this.$dbs, e => {
+        this.$message.error('检查并重建数据库文件错误：' + e.message)
+      }, _ => {
+        this.isRebuildingDatabase = true
+        return this.$loading({
+          lock: true,
+          text: '重建数据库中...',
+          spinner: 'el-icon-loading',
+          background: 'rgba(0, 0, 0, 0.7)'
+        })
+      }, _ => {
+      }, loading => {
+        this.isRebuildingDatabase = false
+        if (loading) {
+          loading.close()
+        }
+        manager.init()
+      })
     },
     mounted () {
       // 监听关闭事件
@@ -55,6 +78,10 @@
         })
       },
       async showCloseTip (event, message) {
+        if (this.isRebuildingDatabase) {
+          this.$message.warning('重建数据库中，不能退出！！')
+          return
+        }
         if (await this.isRunning()) {
           if (!this.waitToExit && !this.waitTasksStop) {
             this.waitToExit = true
