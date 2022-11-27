@@ -51,7 +51,7 @@ class DouyinLivePlatform extends LivePlatform {
         let resReal = await HttpUtil.post(`https://www.douyin.com/user/${id}?previous_page=app_code_link`, null, this.httpHeaders)
         // 获取用户页，获取用户名
         let userName = new RegExp('(?:<span>){4}([^<>]+)(?:</span>){4}', 'g').exec(resReal.data)[1]
-        let douId = new RegExp(/抖音号： <!-- -->([^<>]+)/g).exec(resReal.data)[1]
+        let douId = new RegExp(/<span[^>]*>抖音号：(?:<!-- -->)?([^<>]+)<\/span>/g).exec(resReal.data)[1]
         let user = {
           id: id,
           idShow: douId,
