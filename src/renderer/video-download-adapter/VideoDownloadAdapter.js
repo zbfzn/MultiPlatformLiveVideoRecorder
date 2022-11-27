@@ -24,7 +24,8 @@ VideoDownloadAdapter.supportVideoOutPutFormats = {
   'mkv': {},
   'avi': {
     '-bsf:v': 'h264_mp4toannexb'
-  }
+  },
+  'ts': {}
 }
 
 VideoDownloadAdapter.setFFmpegOutputOptions = (ffmpeg_, ffmpegOutputOption) => {

@@ -42,7 +42,8 @@ LivePlatform.supportVideoOutPutFormats = {
   'mkv': {},
   'avi': {
     '-bsf:v': 'h264_mp4toannexb'
-  }
+  },
+  'ts': {}
 }
 /**
  * 获取用户房间地址或主页地址
